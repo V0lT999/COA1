@@ -4,7 +4,7 @@ from flask import request
 from Task1 import (
     Karatsuba
 )
-from Task2 import(
+from Task2 import (
     FirstRachinskogo,
     SecondRachinskogo,
     ThirdRachinskogo

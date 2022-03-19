@@ -18,7 +18,7 @@ def second_rachinskogo(n, p):
 
         n = m + k * q
         result[f'{counter}'] = f"{m} + {k}*{q} = {n}"
-        if (n >= current_number):
+        if n >= current_number:
             break
             # По условию - нужно использовать другой метод, если n не уменьшается
         counter += 1
