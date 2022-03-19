@@ -12,6 +12,16 @@ from Task2 import (
 from Task3 import (
     Dodgson
 )
+import Task1.Karatsuba
+from Task1 import *
+import Task2.FirstRachinskogo
+from Task2 import *
+import Task2.SecondRachinskogo
+from Task2 import *
+import Task2.ThirdRachinskogo
+from Task2 import *
+import Task2.Pascal
+from Task2 import *
 
 app = Flask(__name__)
 
@@ -61,6 +71,14 @@ def third_rachinskogo():
     simple = int(request.values.get('simple'))
 
     return ThirdRachinskogo.third_rachinskogo(number, simple)
+
+
+@app.route('/pascal')
+def pascal():
+    number = int(request.values.get('number'))
+    divider = int(request.values.get('divider'))
+
+    return Task2.Pascal.pascal(number, divider)
 
 
 if __name__ == "__main__":
