@@ -1,14 +1,17 @@
 from flask import Flask
 from flask import request
 
-import Task1.Karatsuba
-from Task1 import *
-import Task2.FirstRachinskogo
-from Task2 import *
-import Task2.SecondRachinskogo
-from Task2 import *
-import Task2.ThirdRachinskogo
-from Task2 import *
+from Task1 import (
+    Karatsuba
+)
+from Task2 import (
+    FirstRachinskogo,
+    SecondRachinskogo,
+    ThirdRachinskogo
+)
+from Task3 import (
+    Dodgson
+)
 
 app = Flask(__name__)
 
@@ -26,7 +29,14 @@ def karatsuba():
     if b > a:
         a, b = b, a
 
-    return Task1.Karatsuba.karatsuba_method(a, b)
+    return Karatsuba.karatsuba_method(a, b)
+
+
+@app.route('/dodgson')
+def dogson():
+    matrix = request.values.get('matrix')
+
+    return Dodgson.dodgson_method(matrix)
 
 
 @app.route('/first-rachinskogo')
@@ -34,7 +44,7 @@ def first_rachinskogo():
     number = int(request.values.get('number'))
     simple = int(request.values.get('simple'))
 
-    return Task2.FirstRachinskogo.first_rachinskogo(number, simple)
+    return FirstRachinskogo.first_rachinskogo(number, simple)
 
 
 @app.route('/second-rachinskogo')
@@ -42,7 +52,7 @@ def second_rachinskogo():
     number = int(request.values.get('number'))
     simple = int(request.values.get('simple'))
 
-    return Task2.SecondRachinskogo.second_rachinskogo(number, simple)
+    return SecondRachinskogo.second_rachinskogo(number, simple)
 
 
 @app.route('/third-rachinskogo')
@@ -50,7 +60,7 @@ def third_rachinskogo():
     number = int(request.values.get('number'))
     simple = int(request.values.get('simple'))
 
-    return Task2.ThirdRachinskogo.third_rachinskogo(number, simple)
+    return ThirdRachinskogo.third_rachinskogo(number, simple)
 
 
 if __name__ == "__main__":
