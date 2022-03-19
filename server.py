@@ -7,7 +7,8 @@ from Task1 import (
 from Task2 import (
     FirstRachinskogo,
     SecondRachinskogo,
-    ThirdRachinskogo
+    ThirdRachinskogo,
+    Pascal
 )
 from Task3 import (
     Dodgson
@@ -61,6 +62,14 @@ def third_rachinskogo():
     simple = int(request.values.get('simple'))
 
     return ThirdRachinskogo.third_rachinskogo(number, simple)
+
+
+@app.route('/pascal')
+def pascal():
+    number = int(request.values.get('number'))
+    divider = int(request.values.get('divider'))
+
+    return Pascal.pascal(number, divider)
 
 
 if __name__ == "__main__":
