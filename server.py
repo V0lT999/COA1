@@ -4,6 +4,11 @@ from flask import request
 from Task1 import (
     Karatsuba
 )
+from Task2 import(
+    FirstRachinskogo,
+    SecondRachinskogo,
+    ThirdRachinskogo
+)
 from Task3 import (
     Dodgson
 )
@@ -32,6 +37,30 @@ def dogson():
     matrix = request.values.get('matrix')
 
     return Dodgson.dodgson_method(matrix)
+
+
+@app.route('/first-rachinskogo')
+def first_rachinskogo():
+    number = int(request.values.get('number'))
+    simple = int(request.values.get('simple'))
+
+    return FirstRachinskogo.first_rachinskogo(number, simple)
+
+
+@app.route('/second-rachinskogo')
+def second_rachinskogo():
+    number = int(request.values.get('number'))
+    simple = int(request.values.get('simple'))
+
+    return SecondRachinskogo.second_rachinskogo(number, simple)
+
+
+@app.route('/third-rachinskogo')
+def third_rachinskogo():
+    number = int(request.values.get('number'))
+    simple = int(request.values.get('simple'))
+
+    return ThirdRachinskogo.third_rachinskogo(number, simple)
 
 
 if __name__ == "__main__":
