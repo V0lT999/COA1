@@ -20,8 +20,6 @@ def karatsuba():
     if b > a:
         a, b = b, a
 
-    print(a, b)
-
     return Task1.Karatsuba.karatsuba_method(a, b)
 
 

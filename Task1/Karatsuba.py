@@ -15,9 +15,6 @@ def karatsuba_method(a, b):
 
         x1, x2, y1, y2, n = _get_coefs(x, y)
 
-        print(x, y)
-        print(x1, x2, y1, y2, n)
-
         result = f"{x} * {y} = ({x1} * 10^{n/2} + {x2})({y1} * 10^{n/2} + {y2})" \
                  f" = {x1} * {y1} * 10^{n} + ({x1 + x2} * {y1 + y2} - {x1} * {y1}" \
                  f" - {x2} * {y2}) * 10^{n/2} + {x2} * {y2} = " \
