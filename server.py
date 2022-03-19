@@ -1,8 +1,12 @@
 from flask import Flask
 from flask import request
 
-import Task1.Karatsuba
-from Task1 import *
+from Task1 import (
+    Karatsuba
+)
+from Task3 import (
+    Dodgson
+)
 
 app = Flask(__name__)
 
@@ -20,7 +24,14 @@ def karatsuba():
     if b > a:
         a, b = b, a
 
-    return Task1.Karatsuba.karatsuba_method(a, b)
+    return Karatsuba.karatsuba_method(a, b)
+
+
+@app.route('/dodgson')
+def dogson():
+    matrix = request.values.get('matrix')
+
+    return Dodgson.dodgson_method(matrix)
 
 
 if __name__ == "__main__":
