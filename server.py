@@ -3,6 +3,8 @@ from flask import request
 
 import Task1.Karatsuba
 from Task1 import *
+import Task2.SecondRachinskogo
+from Task2 import *
 
 app = Flask(__name__)
 
@@ -21,6 +23,14 @@ def karatsuba():
         a, b = b, a
 
     return Task1.Karatsuba.karatsuba_method(a, b)
+
+
+@app.route('/second-rachinskogo')
+def SecondRachinskogo():
+    number = int(request.values.get('number'))
+    simple = int(request.values.get('simple'))
+
+    return Task2.SecondRachinskogo.second_rachinskogo(number, simple)
 
 
 if __name__ == "__main__":
