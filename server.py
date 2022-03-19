@@ -28,7 +28,7 @@ def karatsuba():
 
 
 @app.route('/second-rachinskogo')
-def SecondRachinskogo():
+def second_rachinskogo():
     number = int(request.values.get('number'))
     simple = int(request.values.get('simple'))
 
