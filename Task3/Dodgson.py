@@ -8,7 +8,6 @@ def dodgson_method(matrix):
         for i in range(n - 1):
             row = []
             for j in range(n - 1):
-                print(i, j)
                 row.append(
                     (mtrx[i][j] * mtrx[i + 1][j + 1] - mtrx[i][j + 1] * mtrx[i + 1][j])
                     // deviders[i][j]
@@ -19,8 +18,6 @@ def dodgson_method(matrix):
 
     def _need_to_mix():
         new_matrix = [matrix[(i + 1) % len(matrix)] for i in range(len(matrix))]
-
-        print("new_matrix: ", new_matrix)
 
         return new_matrix
 
@@ -34,7 +31,6 @@ def dodgson_method(matrix):
         prev_matrix = mtrx.copy()
 
         while counter:
-            print(new_matrix)
             n = len(prev_matrix)
             deviders = []
 
@@ -48,8 +44,6 @@ def dodgson_method(matrix):
                             return process(_need_to_mix())
                         row.append(prev_matrix[i][j])
                     deviders.append(row)
-
-            print(deviders, counter)
 
             prev_matrix = new_matrix
             new_matrix = _get_new_matrix(new_matrix, deviders)
