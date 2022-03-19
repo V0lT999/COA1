@@ -27,13 +27,10 @@ def karatsuba():
 
 @app.route('/first-rachinskogo')
 def first_rachinskogo():
-    a = int(request.values.get('a'))
-    b = int(request.values.get('b'))
+    number = int(request.values.get('number'))
+    simple = int(request.values.get('simple'))
 
-    if b > a:
-        a, b = b, a
-
-    return Task2.FirstRachinskogo.first_rachinskogo(a, b)
+    return Task2.FirstRachinskogo.first_rachinskogo(number, simple)
 
 
 if __name__ == "__main__":
