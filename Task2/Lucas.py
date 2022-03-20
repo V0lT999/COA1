@@ -27,4 +27,6 @@ def lucas(n, d):
     if n == d or n == 0:
         result['result'] = True
 
+    result['count'] = len(result.keys()) - 1
+
     return result

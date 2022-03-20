@@ -39,7 +39,7 @@ def karatsuba():
     return Karatsuba.karatsuba_method(a, b)
 
 
-@app.route('/dodgson')
+@app.route('/dodgson', methods=['POST', 'GET'])
 def dogson():
     matrix = request.values.get('matrix')
 
@@ -86,7 +86,7 @@ def lucas():
     return Lucas.lucas(number, divider)
 
 
-@app.route('/strassen')
+@app.route('/strassen', methods=['POST', 'GET'])
 def strassen():
     matrix_a = request.values.get('matrix_a')
     matrix_b = request.values.get('matrix_b')
