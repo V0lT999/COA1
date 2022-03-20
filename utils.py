@@ -28,3 +28,10 @@ def get_two_matrix(request):
     matrix_b = matrix_b.tolist()
 
     return matrix_a, matrix_b
+
+
+def get_two_list(request):
+    a = [int(i) for i in request.values.get('a')]
+    b = [int(i) for i in request.values.get('b')]
+
+    return a, b
