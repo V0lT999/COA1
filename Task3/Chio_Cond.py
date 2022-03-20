@@ -47,12 +47,13 @@ def chio_cond_method(matrix: list, result: dict, req_lvl: int, multiplayer: int 
 
     multiplayer = multiplayer * 1 / (matrix_[0, 0] ** (n - 2))
     # print(det_result)
-    result[str(req_lvl)] = f"1 / {matrix_[0, 0]} ** {(n - 2)} * {np.array(det_matrix)}"
+    # str_det = np.array2string(, precision=1, separator=',', suppress_small=True)
+    str_det = np.array_str(np.array(det_matrix), precision=1, suppress_small=True)
+    result[str(req_lvl)] = f"1 / {matrix_[0, 0]} ** {(n - 2)} * {str_det}"
     return chio_cond_method(det_result, result, req_lvl + 1, multiplayer)
 
 
-def main_chio_cond_method(matrix: list, size: int):
-    matrix = np.array(matrix).reshape((size, size))
+def main_chio_cond_method(matrix: list):
     res = chio_cond_method(matrix, {}, 1)
     res['count'] = len(res.keys()) - 1
     pprint(res)
@@ -64,11 +65,9 @@ def tests():
         matrix = np.round(np.random.rand(4, 4) * 100)
         matrix[0, 0] = 0
         matrix[1, 1] = 0
-        # matrix = np.array([[2, 0, 3, -2, 3], [0, 2, 1, 0, -2], [1, 2, 0, 2, -2], [-2, 0, -3, 0, 3], [-3, -3, 2, 3, 2]])
         matrix_list = matrix.tolist()
         result_ = main_chio_cond_method(matrix_list)
         result = result_['result']
-        # result_3 = dodgson_method(matrix_list)['result']
         result_2 = np.round(np.linalg.det(matrix))
         print(result)
         print(result_2)
@@ -77,7 +76,7 @@ def tests():
 
 
 if __name__ == '__main__':
-    matrix = [0, 1, 3, 2, 3, 2, 4, 2, 0, 1, 2, 0, 1, 3, 2, 1]
+    matrix = [[0, 1, 3, 2], [3, 2, 4, 2], [0, 1, 2, 0], [1, 3, 2, 1]]
     # chio_cond_method(matrix, {}, 1)
-    main_chio_cond_method(matrix, 4)
+    main_chio_cond_method(matrix)
     # tests()
