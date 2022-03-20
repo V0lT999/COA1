@@ -3,7 +3,8 @@ from flask import request
 from flask_cors import CORS
 
 from Task1 import (
-    Karatsuba
+    Karatsuba,
+    Abbreviated
 )
 from Task2 import (
     FirstRachinskogo,
@@ -28,6 +29,17 @@ CORS(app)
 @app.route('/')
 def index():
     return app.make_response("OK")
+
+
+@app.route('/abbreviated')
+def abbreviated():
+    a = int(request.values.get('a'))
+    b = int(request.values.get('b'))
+
+    if b > a:
+        a, b = b, a
+
+    return Abbreviated.abbreviated_multiplication(a, b)
 
 
 @app.route('/karatsuba')
