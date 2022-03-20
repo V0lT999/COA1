@@ -4,6 +4,7 @@ from flask_cors import CORS
 
 from Task1 import (
     Karatsuba,
+    Fourier,
     Abbreviated
 )
 from Task2 import (
@@ -20,7 +21,7 @@ from Task3 import (
 from Task4 import (
     Strassen
 )
-from utils import get_matrix, get_two_matrix
+from utils import get_matrix, get_two_matrix, get_two_list
 
 app = Flask(__name__)
 CORS(app)
@@ -51,6 +52,13 @@ def karatsuba():
         a, b = b, a
 
     return Karatsuba.karatsuba_method(a, b)
+
+
+@app.route('/fourier')
+def fourier():
+    a, b = get_two_list(request)
+
+    return Fourier.fourier_method(a, b)
 
 
 @app.route('/dodgson', methods=['POST', 'GET'])
