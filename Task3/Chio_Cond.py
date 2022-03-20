@@ -56,7 +56,7 @@ def chio_cond_method(matrix: list, result: dict, req_lvl: int, multiplayer: int 
 def main_chio_cond_method(matrix: list):
     res = chio_cond_method(matrix, {}, 1)
     res['count'] = len(res.keys()) - 1
-    pprint(res)
+    # pprint(res)
     return res
 
 
