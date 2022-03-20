@@ -31,7 +31,8 @@ def chio_cond_method(matrix: list, result: dict, req_lvl: int, multiplayer: int 
 
     # cant happend
     if matrix_[0, 0] == 0:
-        result['result'] = matrix_
+        # det have zero row
+        result['result'] = 0
         return result
 
     for i in range(n - 1):
@@ -50,7 +51,8 @@ def chio_cond_method(matrix: list, result: dict, req_lvl: int, multiplayer: int 
     return chio_cond_method(det_result, result, req_lvl + 1, multiplayer)
 
 
-def main_chio_cond_method(matrix: list):
+def main_chio_cond_method(matrix: list, size: int):
+    matrix = np.array(matrix).reshape((size, size))
     res = chio_cond_method(matrix, {}, 1)
     res['count'] = len(res.keys()) - 1
     pprint(res)
@@ -75,7 +77,7 @@ def tests():
 
 
 if __name__ == '__main__':
-    matrix = [[0, 1, 3, 2], [3, 2, 4, 2], [0, 1, 2, 0], [1, 3, 2, 1]]
+    matrix = [0, 1, 3, 2, 3, 2, 4, 2, 0, 1, 2, 0, 1, 3, 2, 1]
     # chio_cond_method(matrix, {}, 1)
-    main_chio_cond_method(matrix)
+    main_chio_cond_method(matrix, 4)
     # tests()
