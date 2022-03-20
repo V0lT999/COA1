@@ -28,5 +28,6 @@ def karatsuba_method(a, b):
     return {
         'result': _return_step(a, b),
         '1': _return_step(a1 + a2, b1 + b2),
-        '2': _return_step(a2, b2)
+        '2': _return_step(a2, b2),
+        'count': 2
     }

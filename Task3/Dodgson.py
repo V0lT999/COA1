@@ -21,7 +21,7 @@ def dodgson_method(matrix):
 
         return new_matrix
 
-    def process(mtrx):
+    def process(mtrx) -> dict:
         result = {
             '1': mtrx,
         }
@@ -54,4 +54,8 @@ def dodgson_method(matrix):
             result[str(counter)] = new_matrix
             counter += 1
 
-    return process(matrix)
+    result = process(matrix)
+
+    result['count'] = len(result.keys()) - 1
+
+    return result

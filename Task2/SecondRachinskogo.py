@@ -27,4 +27,6 @@ def second_rachinskogo(n, p):
     if n == p or n == 0:
         result['result'] = True
 
+    result['count'] = len(result.keys()) - 1
+
     return result
