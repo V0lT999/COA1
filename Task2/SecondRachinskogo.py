@@ -1,5 +1,4 @@
 def second_rachinskogo(n, p):
-
     b = p % 10
     if b == 1:
         b = 9
