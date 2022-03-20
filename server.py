@@ -8,7 +8,8 @@ from Task2 import (
     FirstRachinskogo,
     SecondRachinskogo,
     ThirdRachinskogo,
-    Pascal
+    Pascal,
+    Lucas
 )
 from Task3 import (
     Dodgson
@@ -73,6 +74,14 @@ def pascal():
     divider = int(request.values.get('divider'))
 
     return Pascal.pascal(number, divider)
+
+
+@app.route('/lucas')
+def lucas():
+    number = int(request.values.get('number'))
+    divider = int(request.values.get('divider'))
+
+    return Lucas.lucas(number, divider)
 
 
 @app.route('/strassen')
