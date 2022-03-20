@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import request
+from flask_cors import CORS
 
 from Task1 import (
     Karatsuba
@@ -19,6 +20,7 @@ from Task4 import (
 )
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')
