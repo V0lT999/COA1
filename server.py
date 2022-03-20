@@ -13,7 +13,8 @@ from Task2 import (
     Lucas
 )
 from Task3 import (
-    Dodgson
+    Dodgson,
+    Chio_Cond
 )
 from Task4 import (
     Strassen
@@ -45,6 +46,12 @@ def dogson():
     matrix = get_matrix(request)
 
     return Dodgson.dodgson_method(matrix)
+
+
+@app.route('/chio_cond', methods=['POST', 'GET'])
+def chio_cond():
+    matrix = get_matrix(request)
+    return Chio_Cond.main_chio_cond_method(matrix)
 
 
 @app.route('/first-rachinskogo')
