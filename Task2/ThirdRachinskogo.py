@@ -1,25 +1,23 @@
 def third_rachinskogo(n, p):
-    counter = 1
     b = p % 10
     if b == 1:
-        q = int((p * 9 + 1) / 10)
+        b = 9
     elif b == 9:
-        q = int((p + 1) / 10)
-    else:
-        q = int((p * b + 1) / 10)
+        b = 1
 
+    q = int((p * b + 1) / 10)
+    result = {'result': False,
+              '1': f"q = (p * b + 1) / 10 = ({p} * {b} + 1) / 10 = {q}, q* = p - q = {p} - {q} = {p - q}"}
     q = p - q
 
-    a = int(p / 10)
-    result = {'result': False}
-
+    counter = 2
     current_number = n
     while n > p and counter < 100:
         k = n % 10
         m = int(n / 10)
 
         n = m - k * q
-        result[f'{counter}'] = f"{m} - {k}*{q} = {n}"
+        result[f'{counter}'] = f"m = {m} k = {k}, {m} - {k}*{q} = {n}"
         if n >= current_number:
             break
             # По условию - нужно использовать другой метод, если n не уменьшается

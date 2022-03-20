@@ -18,6 +18,7 @@ from Task3 import (
 from Task4 import (
     Strassen
 )
+from utils import get_matrix
 
 app = Flask(__name__)
 CORS(app)
@@ -41,7 +42,7 @@ def karatsuba():
 
 @app.route('/dodgson', methods=['POST', 'GET'])
 def dogson():
-    matrix = request.values.get('matrix')
+    matrix = get_matrix(request)
 
     return Dodgson.dodgson_method(matrix)
 
