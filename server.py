@@ -18,7 +18,7 @@ from Task3 import (
 from Task4 import (
     Strassen
 )
-from utils import get_matrix
+from utils import get_matrix, get_two_matrix
 
 app = Flask(__name__)
 CORS(app)
@@ -89,9 +89,7 @@ def lucas():
 
 @app.route('/strassen', methods=['POST', 'GET'])
 def strassen():
-    matrix_a = request.values.get('matrix_a')
-    matrix_b = request.values.get('matrix_b')
-
+    matrix_a, matrix_b = get_two_matrix(request)
     return Strassen.strassen_method(matrix_a, matrix_b)
 
 
