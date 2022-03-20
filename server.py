@@ -13,6 +13,9 @@ from Task2 import (
 from Task3 import (
     Dodgson
 )
+from Task4 import (
+    Strassen
+)
 
 app = Flask(__name__)
 
@@ -70,6 +73,14 @@ def pascal():
     divider = int(request.values.get('divider'))
 
     return Pascal.pascal(number, divider)
+
+
+@app.route('/strassen')
+def strassen():
+    matrix_a = request.values.get('matrix_a')
+    matrix_b = request.values.get('matrix_b')
+
+    return Strassen.strassen_method(matrix_a, matrix_b)
 
 
 if __name__ == "__main__":
