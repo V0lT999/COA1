@@ -3,7 +3,8 @@ def abbreviated_multiplication(a, b):
         result = {}
         max_len = len(max(res, key=len))
         for i, row in enumerate(res, start=1):
-            result[i] = f"{row.center(max_len, ' ')}"
+            result[str(i)] = f"{row.center(max_len, ' ')}"
+        result['count'] = len(result.keys())
         return result
 
     def __single_row_calculation(a, b, iter):
