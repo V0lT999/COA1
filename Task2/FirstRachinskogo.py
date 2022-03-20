@@ -1,5 +1,4 @@
 def first_rachinskogo(n, p):
-
     b = p % 10
     a = int(p / 10)
     result = {'result': False, '1': f"a = {a} b = {b}"}
