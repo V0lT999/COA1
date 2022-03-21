@@ -10,9 +10,9 @@ def fourier_method(a: list, b: list):
             sum += a[i+j] * b[j]
         product.append(str(sum % 10))
         num = sum // 10
-        result[str(i+1)] = ''.join(product)
+        result[str(i+1)] = ''.join(product[::-1])
         if num > 0:
-            result[str(i+1)] = ''.join(['(1)', result[str(i+1)]])
+            result[str(i+1)] = ''.join([f'({num})', result[str(i+1)]])
 
     if num > 0:
         product.append(str(num))
