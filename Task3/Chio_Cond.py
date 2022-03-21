@@ -49,7 +49,7 @@ def chio_cond_method(matrix: list, result: dict, req_lvl: int, multiplayer: int 
     # print(det_result)
     # str_det = np.array2string(, precision=1, separator=',', suppress_small=True)
     str_det = np.array_str(np.array(det_matrix), precision=1, suppress_small=True)
-    result[str(req_lvl)] = f"1 / {matrix_[0, 0]} ** {(n - 2)} * {str_det}"
+    result[str(req_lvl)] = f"{multiplayer} * {str_det}"
     return chio_cond_method(det_result, result, req_lvl + 1, multiplayer)
 
 
@@ -62,21 +62,22 @@ def main_chio_cond_method(matrix: list):
 
 def tests():
     for i in range(100000):
-        matrix = np.round(np.random.rand(4, 4) * 100)
-        matrix[0, 0] = 0
-        matrix[1, 1] = 0
+        matrix = np.array([[0, 1, 3, 1], [1, 2, 4, 2], [0, 1, 2, 2], [1, 0, 0, 1]])
+        # matrix = np.array([[0, 1, 3, 1], [1, 2, 4, 2], [0, 1, 2, 3], [1, 0, 0, 1]])
         matrix_list = matrix.tolist()
         result_ = main_chio_cond_method(matrix_list)
         result = result_['result']
         result_2 = np.round(np.linalg.det(matrix))
-        print(result)
+        pprint(result_)
         print(result_2)
         assert round(result_2) == round(result), f"Should be {result}, but {result_2}"
+        print(result)
+        break
         # print(result_3)
 
 
 if __name__ == '__main__':
-    matrix = [[0, 1, 3, 2], [3, 2, 4, 2], [0, 1, 2, 0], [1, 3, 2, 1]]
+    # matrix = [[0, 1, 3, 2], [3, 2, 4, 2], [0, 1, 2, 0], [1, 3, 2, 1]]
     # chio_cond_method(matrix, {}, 1)
-    main_chio_cond_method(matrix)
+    tests()
     # tests()
